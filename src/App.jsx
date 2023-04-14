@@ -1,4 +1,5 @@
 import Header from "./components/header";
+import Products from "./components/products";
 import SelectCategories from "./components/select-categories";
 
 const data = [
@@ -17,6 +18,7 @@ function App() {
     <>
       <Header />
       <SelectCategories categories={uniqueCategories} />
+      <Products products={data} />
     </>
   );
 }
