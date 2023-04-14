@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./components/button";
 import Header from "./components/header";
 import Products from "./components/products";
 import SelectCategories from "./components/select-categories";
@@ -29,31 +30,17 @@ function App() {
         {count}
       </p>
 
-      <button
-        className="rounded bg-green-500 px-2 py-4 text-white"
-        // A callback function that is called back on click
+      <Button
+        text="Increase Count"
         onClick={() => {
-          setCount(
-            // The callback function is passed the previous state, and returns the new state. This is the preferred way to update state when the new state depends on the previous state.
-            (prevCount) => prevCount + 1
-          );
+          setCount((prev) => prev + 1);
         }}
-      >
-        Increase Count By 1
-      </button>
+      />
 
-      <button
-        className="rounded bg-green-500 px-2 py-4 text-white"
-        // A callback function that is called back on click
-        onClick={() => {
-          setCount(
-            // The callback function is passed the previous state, and returns the new state. This is the preferred way to update state when the new state depends on the previous state.
-            (prevCount) => prevCount - 1
-          );
-        }}
-      >
-        Decrease Count By 1
-      </button>
+      <Button
+        text="Decrease Count"
+        onClick={() => setCount((prev) => prev - 1)}
+      />
     </>
   );
 }
