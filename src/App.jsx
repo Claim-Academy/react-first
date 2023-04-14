@@ -18,12 +18,21 @@ const uniqueCategories = [...new Set(data.map((item) => item.category))];
 function App() {
   // useState is a hook that allows us to manage state in a function component. It returns an array with two elements. The first element is the state, and the second element is a function that allows us to update the state. The argument passed to useState is the initial state.
   const [count, setCount] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState("Fruits");
 
   return (
     <>
       <Header />
-      <SelectCategories categories={uniqueCategories} />
-      <Products products={data} />
+      <SelectCategories
+        categories={uniqueCategories}
+        onChange={(event) => {
+          // 'event.target.value' is the value of the selected option.
+          setSelectedCategory(event.target.value);
+        }}
+      />
+      <Products
+        products={data.filter((item) => item.category === selectedCategory)}
+      />
 
       {/* We want to manage the state of the UI, such that whenever the user clicks the button, this display gets updated. '0' needs to be a piece of state that we will track. Whenever it is updates, we will re-render this component. In other words, we react to changes in state by updating and re-rendering the DOM/components. */}
       <p className="text-center text-5xl font-extrabold text-red-500">

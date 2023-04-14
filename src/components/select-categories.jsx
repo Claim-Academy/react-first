@@ -1,10 +1,10 @@
-export default function SelectCategories({ categories }) {
+export default function SelectCategories({ categories, onChange }) {
   return (
     <div className="flex flex-col">
       <label htmlFor="categories" className="font-bold">
         Categories
       </label>
-      <select id="categories" name="categories">
+      <select id="categories" name="categories" onChange={onChange}>
         {categories.map((category) => (
           <option key={category} value={category}>
             {category}
