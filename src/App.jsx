@@ -28,6 +28,7 @@ function App() {
       <p className="text-center text-5xl font-extrabold text-red-500">
         {count}
       </p>
+
       <button
         className="rounded bg-green-500 px-2 py-4 text-white"
         // A callback function that is called back on click
@@ -38,7 +39,20 @@ function App() {
           );
         }}
       >
-        Click Me
+        Increase Count By 1
+      </button>
+
+      <button
+        className="rounded bg-green-500 px-2 py-4 text-white"
+        // A callback function that is called back on click
+        onClick={() => {
+          setCount(
+            // The callback function is passed the previous state, and returns the new state. This is the preferred way to update state when the new state depends on the previous state.
+            (prevCount) => prevCount - 1
+          );
+        }}
+      >
+        Decrease Count By 1
       </button>
     </>
   );
